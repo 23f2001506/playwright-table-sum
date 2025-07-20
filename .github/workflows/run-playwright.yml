@@ -1,32 +1,25 @@
-name: Playwright Table Sum
+name: Playwright Table Sum (23f3004008@ds.study.iitm.ac.in)
 
 on:
   push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
-  run-playwright:
+  scrape-and-sum:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-          node-version: '20'
+          python-version: '3.10'
 
-      - name: Install Dependencies
+      - name: Install Python dependencies
         run: |
-          npm init -y
-      - name: Install Playwright Browsers
-        run: |
-          npx playwright install
+          pip install -r requirements.txt
+          playwright install chromium
 
-
-
-      - name: 23f2001506@ds.study.iitm.ac.in - Run Playwright Scraper
-        run: |
-          node scrape-tables.mjs
+      - name: Run sum script (23f3004008@ds.study.iitm.ac.in)
+        run: python 5_githubaction.py

@@ -1,4 +1,4 @@
-name: Playwright Table Sum (23f3004008@ds.study.iitm.ac.in)
+name: Playwright Table Sum (23f2001506@ds.study.iitm.ac.in)
 
 on:
   push:
@@ -21,5 +21,5 @@ jobs:
           pip install -r requirements.txt
           playwright install chromium
 
-      - name: Run sum script (23f3004008@ds.study.iitm.ac.in)
+      - name: Run sum script (23f2001506@ds.study.iitm.ac.in)
         run: python 5_githubaction.py
